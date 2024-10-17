@@ -1,26 +1,46 @@
-//String o cadenas de texto  este tipo de dato se utiliza para declara variables del tipo de texto o cadena de texto
-const alumno = "juan"
-let producto = 'monitor 20 pulgadas'
-const numero = "30"
-const numero2 = 30
-console.log(typeof numero)
-console.log(typeof numero2)
-//BigInt Se usa para declarar numeros muy granades
-const numeroGrande = BigInt(12123445678654323456)
-console.log(typeof numeroGrande)
-const numero1 = 10
-const numeroo2 = 20
-console.log(numero + Number(numeroGrande))
-const numerooo = "30"
-const numerooo2 = 30
-console.log(typeof String(numero2))
-console.log(typeof Number(numero))
- Symbol
-const primerSymbol = Symbol(30)
-const segundoSymbol = Symbol(30)
-console.log(primerSymbol === segundoSymbol)
-console.log(primerSymbol.valueOf())
-console.log(segundoSymbol.valueOf())
-//Null  se utiliza para declarar variables con un valor nulo
-const descuento = null
-console.log(typeof descuento)
+//Objetos
+const producto = { //Asignacion de atributos
+    nombre: "Tablet 9\"",
+    marca: "Mac",
+    modelo: "iPad",
+    costoCompra: 11500.25,
+    constoVenta: 15400,
+    disponible: true,
+    SKU: Symbol("ABCDE"),
+    colores: ["Blanco","Negro","Rosa","Azul","Amarillo"] //Arreglo
+}
+//Imprimir el objeto
+console.warn("----Objetos----")
+console.log(producto)
+ //Los objetos tambien pueden representarse con formato de tabla usando la funcion console.table
+ console.table(producto)
+//Acceder a las propiedades del producto
+console.warn("Leyendo las Propiedades de un Objeto y sus tipos de dato")
+    console.log(`Nombre del Producto: ${producto.nombre} que es del tipo: ${typeof(producto.nombre)}`);
+    console.log(`Nombre del Producto: ${producto.marca} que es del tipo: ${typeof(producto.marca)}`);
+    console.log(`Nombre del Producto: ${producto.modelo} que es del tipo: ${typeof(producto.modelo)}`);
+    console.log(`Nombre del Producto: ${producto.costoCompra} que es del tipo: ${typeof(producto.costoCompra)}`);
+    console.log(`Nombre del Producto: ${producto.constoVenta} que es del tipo: ${typeof(producto.constoVenta)}`);
+    console.log(`Nombre del Producto: ${producto.disponible} que es del tipo: ${typeof(producto.disponible)}`);
+    console.log(`Nombre del Producto: ${String(producto.SKU)} que es del tipo: ${typeof(producto.SKU)}`);
+    console.log(`Nombre del Producto: ${producto.colores} que es del tipo: ${typeof(producto.colores)}`);
+ console.log(producto.nombre) // Añadir en cadena los datos del producto
+ console.log(producto.marca)
+ console.log(producto.modelo)
+ console.log(producto.costoCompra)
+ console.log(producto.constoVenta)
+ console.log(producto.disponible)
+ console.log(producto.SKU)
+ console.log(producto.colores)
+// Desctructuring : Sacar una estructura
+const { nombre ,marca ,modelo } = producto
+console.log(nombre)
+console.log(marca)
+console.log(modelo)
+// Objet Literarl Enhacement colocar datos dentro de un objeto
+const autenticad = true
+const usuario = "juan"
+const nuevoObjeto = {
+    autenticad: autenticado,
+    usuario: usuario
+}
