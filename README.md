@@ -14,7 +14,7 @@ Previo a iniciar el desarrollo de software para web usando el framework de Node.
 |4.|Declaración de Variables(Continuación)|6|Finalizada|
 |5.|Introducción a Objetos|19|Finalizada|
 |6.|Arreglos (Declaraciones multidimensionales, metodos de array)|18|Finalizada|
-|7.|Sentencias de control y ciclos|17|Activa|
+|7.|Sentencias de control y ciclos|16|Activa|
 ## Autor
 Adrian Pérez Jiménez
 Unidad 1
