@@ -1,4 +1,4 @@
-//Objetos
+// Objetos
 const bg = "linear-gradient(11deg,rgba(2,0,36,1) 0%,rgba(9,9,121,1) 33%, rgba(0,212,255,1) 86%)";
 const style_console = `background: ${bg}; color: white; border-radius: 6px; paddig: 4px; font-size: 1.0rem; font weight: bold`;
 // Variables independiemtes
@@ -29,6 +29,7 @@ console.log(typeof(Producto_SKU));
 //Ahora lo declaramos como un OBjeto
 console.log("%c2.- Objeto", style_console)
 let Producto = {
+    ID:225,
     Nombre: "Laptop HP",
     Marca: "Hewlett Packard",
     Modelo: "DV 3000",
@@ -65,6 +66,7 @@ let Producto2 = {
     Categoria:["Electronicos","Entretenimiento","Casa"]
 }
 let Comprador= {
+    ID:222,
     Clave: 3324,
     Nombre: "Adrian",
     Apellidos: "Perez Jimenez",
@@ -74,6 +76,7 @@ let Comprador= {
     SaldoActual: 199992.23
 }
 let Pedido = {
+    ID:2233,
     Producto_Clave:612,
     Comprador_Clave: 3324,
     Cantidad: 2,
@@ -96,7 +99,7 @@ console.log(JSON.stringify(Producto2, null, 2)); //StringFy lo vuelve cadena
 console.log(`Por cuestiones de inflacion el costp del producto ha cambiado y debe ser actualizado... de 6,829.00 a 6,915.50`)
 //Para modificar el valor de un objeto basta con igualar el nuevo valor de la propiedad deseada
 Producto2,Precio=6915.50;
-console.log(`Los nuevos valores del Producto son:`)  
+console.log(`Los nuevos valores del Producto son:  `)
 console.log(Producto2);
 //¿Puedo cambiar no solo el vaor, si no el tipo de dadto de un objeto de javascrip
 console.log(`-------------------------------`)
@@ -185,4 +188,89 @@ console.log("Los datos del cliente y sus habitos de comprea son")
 console.table(datosClientePromociones)
 //Operaciones sobre objetos
 //Union de Objetos
-console.log("%c10.- ",style_console)
+console.log("%c10.- Unión de objetos  usuando el metodo de asignación (ASSIGN) ",style_console)
+console.log("Imprimimos la estructura y valores del Objeto PRODUCTO")
+console.table(Producto)
+console.log("Imprimimosd la estructura y valores del Objeto PEDIDO")
+console.table(Pedido)
+//Suponiendo que el usuarios ya realizó el pago el pedido se convertirá en una VENTA que requiere información de ambos objetos
+//let Producto3={...Producto3}
+const Venta = Object.assign(Producto, Pedido) //Recomendadcion: no usar assign si las propiedades del objeto son iguales, ya que se puede propiciar la perdida de datos
+console.log("Consultamos este nuevo objeto VENTA")
+console.table(Venta)
+//Union de objetos Utilizando SPREAD OPERATOR para evitar la perdida de informacion con objetos que comparten el mismo nombre en sus propiiedades
+console.log("%c11.- Unión de objetos  usuando el SPREAD OPERATOR (...)",style_console)
+console.table(Producto)
+console.table(Comprador)
+console.table(Pedido)
+Producto.ID=100;
+let Venta2 = {
+    producto:{...Producto},
+    comprador:{...Comprador},
+    pedido:{...Pedido}
+}
+console.log("Fusionamos los 3 objetos en uno nuevo, sin perdida de información")
+console.log(Venta2)
+console.table(Venta2)
+console.log("%c12.-Mutabilidad POST Unión de Objetos",style_console) 
+//Vamos a verificar el estatus de mutabilidad de los objetos
+console.log("Vamos a verificar el estatus de mutabilidad del objeto Pedido")
+console.log(`Esta el objeto de Pedido Congelado? : ${Object.isFrozen(Pedido)}`)
+console.log(`Esta el objeto de Pedido Congelado? : ${Object.isSealed(Pedido)}`)
+console.log("Vamos a verificar el estatus de mutabilidad del objeto Comprador")
+console.log(`Esta el objeto de Pedido Congelado? : ${Object.isFrozen(Comprador)}`)
+console.log(`Esta el objeto de Pedido Congelado? : ${Object.isSealed(Comprador)}`)
+console.log("Vamos a verificar el estatus de mutabilidad del objeto Producto")
+console.log(`Esta el objeto de Pedido Congelado? : ${Object.isFrozen(Producto)}`)
+console.log(`Esta el objeto de Pedido Congelado? : ${Object.isSealed(Producto)}`)
+//Modificamos ña estructura de producto, agregando una nueva propiedad
+Producto['isLegacy']=true; //Productos que van ganando precio,(Son productos que ya no se producen)
+console.log(Producto)
+console.table(Venta2)
+/////////////////////////////////////////////////////-co
+const producto = { //Asignacion de atributos
+    nombre: "Tablet 9\"",
+    marca: "Mac",
+    modelo: "iPad",
+    costoCompra: 11500.25,
+    constoVenta: 15400,
+    disponible: true,
+    SKU: Symbol("ABCDE"),
+    colores: ["Blanco","Negro","Rosa","Azul","Amarillo"] //Arreglo
+}
+//Imprimir el objeto
+console.warn("----Objetos----")
+console.log(producto)
+ //Los objetos tambien pueden representarse con formato de tabla usando la funcion console.table
+ console.table(producto)
+//Acceder a las propiedades del producto
+console.warn("Leyendo las Propiedades de un Objeto y sus tipos de dato")
+    console.log(`Nombre del Producto: ${producto.nombre} que es del tipo: ${typeof(producto.nombre)}`);
+    console.log(`Nombre del Producto: ${producto.marca} que es del tipo: ${typeof(producto.marca)}`);
+    console.log(`Nombre del Producto: ${producto.modelo} que es del tipo: ${typeof(producto.modelo)}`);
+    console.log(`Nombre del Producto: ${producto.costoCompra} que es del tipo: ${typeof(producto.costoCompra)}`);
+    console.log(`Nombre del Producto: ${producto.constoVenta} que es del tipo: ${typeof(producto.constoVenta)}`);
+    console.log(`Nombre del Producto: ${producto.disponible} que es del tipo: ${typeof(producto.disponible)}`);
+    console.log(`Nombre del Producto: ${String(producto.SKU)} que es del tipo: ${typeof(producto.SKU)}`);
+    console.log(`Nombre del Producto: ${producto.colores} que es del tipo: ${typeof(producto.colores)}`);
+ console.log(producto.nombre) // Añadir en cadena los datos del producto
+ console.log(producto.marca)
+ console.log(producto.modelo)
+ console.log(producto.costoCompra)
+ console.log(producto.constoVenta)
+ console.log(producto.disponible)
+ console.log(producto.SKU)
+ console.log(producto.colores)
+// Desctructuring : Sacar una estructura
+const { nombre ,marca ,modelo } = producto
+console.log(nombre)
+console.log(marca)
+console.log(modelo)
+// Objet Literarl Enhacement colocar datos dentro de un objeto
+const autenticad = true
+const usuario = "juan"
+const nuevoObjeto = {
+    autenticado: autenticado,
+    usuario: usuario
+}
+console.table(nuevoObjeto)
